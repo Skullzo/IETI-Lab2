@@ -217,6 +217,8 @@ If you haven't created your MongoDB Cluster follow part 1 - 4:
      ```
 ***Tip***: take a look at the official documenation and learn how to create custom queries with [Spring Data](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation)
 
+**Link to main repository:** https://github.com/ada-school/spring-boot-data-mongodb
+
 ## Autor
 [Alejandro Toro Daza](https://github.com/Skullzo)
 ## Licencia & Derechos de Autor
