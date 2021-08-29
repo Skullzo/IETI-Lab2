@@ -1,37 +1,41 @@
 package edu.escuelaing.ieti.controller;
 import edu.escuelaing.ieti.document.User;
-import edu.escuelaing.ieti.dto.UserDto;
 import edu.escuelaing.ieti.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 @RestController
-@RequestMapping("/v1/user" )
+@RequestMapping("/v1/user")
 public class UserController {
     private final UserService userService;
-    public UserController(@Autowired UserService userService) {
+    public UserController(@Autowired UserService userService ){
         this.userService = userService;
     }
-    @PostMapping
-    public User createUser(@RequestBody UserDto userDto) {
-        return userService.create(new User(userDto));
+    @GetMapping
+    public ResponseEntity<List<User>> all() {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.all());
     }
     @GetMapping("/{id}")
-    public User findUserById(@PathVariable String id) {
-        return userService.findById(id);
+    public ResponseEntity<User> findById(@PathVariable String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.findById(id));
     }
-    @DeleteMapping("/{id}")
-    public boolean deleteUserById(@PathVariable String id) {
-        return userService.deleteById(id);
+    @PostMapping
+    public ResponseEntity<User> create(@RequestBody User user) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.create(user));
     }
     @PutMapping("/{id}")
-    public User updateUserById(@RequestBody UserDto userDto, @PathVariable String id) {
-        return userService.updateById(userDto, id);
+    public ResponseEntity<User> update(@RequestBody User user, @PathVariable String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.update(user, id));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable String id) {
+        try{
+            userService.deleteById(id);
+            return ResponseEntity.status(HttpStatus.OK).body((true));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR.ordinal()).body((false));
+        }
     }
 }
