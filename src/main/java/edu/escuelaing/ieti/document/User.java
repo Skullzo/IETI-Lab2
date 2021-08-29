@@ -10,20 +10,23 @@ public class User {
     private String id;
     
     private String name;
+    
     private String email;
+    
     private String lastName;
+    
     private Date createdAt;
 
     public User() {
         
     }
-    public User( UserDto userDto ) {
+    public User(UserDto userDto) {
         name = userDto.getName();
         email = userDto.getEmail();
-        lastName = userDto.LastName();
-        createdAt = UserDto.getCreatedAt();
+        lastName = userDto.getLastName();
+        createdAt = userDto.getCreatedAt();
     }
-    public void update( UserDto UserDto ) {
+    public void update(UserDto userDto) {
         name = userDto.getName();
         email = userDto.getEmail();
         lastName = userDto.getLastName();

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+@RestController
+@RequestMapping("/v1/user" )
 public class UserController {
     private final UserService userService;
     public UserController(@Autowired UserService userService) {

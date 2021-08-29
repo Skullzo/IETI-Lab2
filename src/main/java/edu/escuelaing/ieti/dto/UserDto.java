@@ -1,14 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.escuelaing.ieti.dto;
-
-/**
- *
- * @author skull
- */
+import java.util.Date;
 public class UserDto {
     
+    private String name;
+
+    private String email;
+
+    private String lastName;
+
+    private Date createdAt;
+
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 }
