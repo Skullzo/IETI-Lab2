@@ -1,14 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.escuelaing.ieti.document;
-
-/**
- *
- * @author skull
- */
+import edu.escuelaing.ieti.dto.UserDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Date;
+@Document
 public class User {
     
+    @Id
+    private String id;
+    
+    private String name;
+    private String email;
+    private String lastName;
+    private Date createdAt;
+
+    public User() {
+        
+    }
+    public User( UserDto userDto ) {
+        name = userDto.getName();
+        email = userDto.getEmail();
+        lastName = userDto.LastName();
+        createdAt = UserDto.getCreatedAt();
+    }
+    public void update( UserDto UserDto ) {
+        name = userDto.getName();
+        email = userDto.getEmail();
+        lastName = userDto.getLastName();
+        createdAt = userDto.getCreatedAt();
+    }
+    public String getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 }

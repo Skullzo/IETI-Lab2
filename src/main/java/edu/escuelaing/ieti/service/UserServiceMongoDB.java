@@ -1,14 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.escuelaing.ieti.service;
-
-/**
- *
- * @author skull
- */
-public class UserServiceMongoDB {
-    
+import java.util.List;
+public class UserServiceMongoDB implements UserService {
+    private final UserRepository userRepository; 
+    public UserServiceMongoDB(@Autowired UserRepository userRepository ) {
+        this.userRepository = userRepository;
+    }   
+    @Override
+    public User create( User user ) {
+        return null;
+    }
+    @Override
+    public User findById( String id ) {
+        return null;
+    }
+    @Override
+    public List<User> all() {
+        return null;
+    } 
+    @Override
+    public boolean deleteById( String id ) {
+        return false;
+    } 
+    @Override
+    public User update( UserDto userDto, String id ) {
+        return null;
+    }
 }
