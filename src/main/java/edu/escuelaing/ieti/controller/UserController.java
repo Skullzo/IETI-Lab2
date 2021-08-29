@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
-    public UserController( @Autowired UserService userService ) {
+    public UserController(@Autowired UserService userService) {
         this.userService = userService;
     }
     @PostMapping
-    public User createUser( @RequestBody UserDto userDto ) {
-        return userService.create( new User( userDto ) );
+    public User createUser(@RequestBody UserDto userDto) {
+        return userService.create(new User(userDto));
     }
-    @GetMapping( "/{id}" )
-    public User findUserById( @PathVariable String id ) {
-        return userService.findById( id );
+    @GetMapping("/{id}")
+    public User findUserById(@PathVariable String id) {
+        return userService.findById(id);
     }
-    @DeleteMapping( "/{id}" )
-    public boolean deleteUserById( @PathVariable String id ) {
-        return userService.deleteById( id );
+    @DeleteMapping("/{id}")
+    public boolean deleteUserById(@PathVariable String id) {
+        return userService.deleteById(id);
     }
-    @PutMapping( "/{id}" )
-    public User updateUserById( @RequestBody UserDto userDto, @PathVariable String id ) {
-        return userService.updateById( userDto, id );
+    @PutMapping("/{id}")
+    public User updateUserById(@RequestBody UserDto userDto, @PathVariable String id) {
+        return userService.updateById(userDto, id);
     }
 }
