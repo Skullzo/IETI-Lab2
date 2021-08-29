@@ -17,19 +17,19 @@ public class UserController {
         this.userService = userService;
     }
     @PostMapping
-    public User createWeather( @RequestBody UserDto userDto ) {
+    public User createUser( @RequestBody UserDto userDto ) {
         return userService.create( new User( userDto ) );
     }
     @GetMapping( "/{id}" )
-    public User findWeatherById( @PathVariable String id ) {
+    public User findUserById( @PathVariable String id ) {
         return userService.findById( id );
     }
     @DeleteMapping( "/{id}" )
-    public boolean deleteWeatherById( @PathVariable String id ) {
+    public boolean deleteUserById( @PathVariable String id ) {
         return userService.deleteById( id );
     }
     @PutMapping( "/{id}" )
-    public User updateWeatherById( @RequestBody UserDto weatherDto, @PathVariable String id ) {
-        return userService.updateById( weatherDto, id );
+    public User updateUserById( @RequestBody UserDto userDto, @PathVariable String id ) {
+        return userService.updateById( userDto, id );
     }
 }
