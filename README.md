@@ -221,9 +221,12 @@ If you haven't created your MongoDB Cluster follow part 1 - 4:
 
 https://github.com/ada-school/spring-boot-data-mongodb
 
-## Autor
-[Alejandro Toro Daza](https://github.com/Skullzo)
-## Licencia & Derechos de Autor
-**©** Alejandro Toro Daza, Estudiante de Ingeniería de Sistemas de la [Escuela Colombiana de Ingeniería Julio Garavito](https://www.escuelaing.edu.co/es/).
+## Author
 
-Licencia bajo la [GNU General Public License](https://github.com/Skullzo/IETI-Lab2/blob/main/LICENSE).
+[Alejandro Toro Daza](https://github.com/Skullzo)
+
+## License and Copyrights
+
+**©** Alejandro Toro Daza, Systems Engineering student of the [Colombian School of Engineering Julio Garavito](https://www.escuelaing.edu.co/es/).
+
+Licensed under the [GNU General Public License](https://github.com/Skullzo/IETI-Lab2/blob/main/LICENSE).
