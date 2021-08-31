@@ -5,12 +5,18 @@ import org.ada.school.model.User;
 import org.ada.school.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.ada.school.repository.UserDocument;
 
 @Service
-public class UserServiceMongoDB implements UserService {
-    private final UserRepository userRepository;
-   
-       public UserServiceMongoDB(@Autowired UserRepository userRepository )
+public class UserServiceMongoDB {
+    
+    @Autowired
+    UserRepository userRepository;
+    public UserServiceMongoDB(){
+        
+    }
+    /*   
+    public UserServiceMongoDB(@Autowired UserRepository userRepository )
        {
            this.userRepository = userRepository;
        }
@@ -20,13 +26,16 @@ public class UserServiceMongoDB implements UserService {
        {
            return userRepository.save( user );
        }
-   
+       
        @Override
-       public User findById( String id )
+       public UserDocument findById( String name )
        {
-           return userRepository.findById( id ).orElse( null );
+           
+           return userRepository.findByName( name );
+           
+           
        }
-   
+       
        @Override
        public List<User> all()
        {
@@ -43,10 +52,11 @@ public class UserServiceMongoDB implements UserService {
         }
         return false;
        }
-   
+       
        @Override
        public User update( UserDto userDto, String id )
        {
+           
            if ( userRepository.existsById( id ) )
         {
             User user = userRepository.findById( id ).get();
@@ -54,6 +64,12 @@ public class UserServiceMongoDB implements UserService {
             userRepository.save( user );
             return user;
         }
+        
         return null;
        }
+    */
+    public String saveDocument(UserDocument user) {
+       userRepository.save( user );
+       return "Usuario agregado";
+    }
 }

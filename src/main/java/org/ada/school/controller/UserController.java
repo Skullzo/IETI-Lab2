@@ -15,14 +15,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import org.ada.school.repository.UserDocument;
+import org.ada.school.repository.UserRepository;
+import org.ada.school.service.UserServiceMongoDB;
 
 @RestController
 @RequestMapping( "/user" )
 public class UserController
 {
-
-    private final UserService userService;
-
+    @Autowired
+    private UserRepository userService;
+    @PostMapping("/save")
+    public String saveUser(@RequestBody UserDocument user) {
+        userService.save(user);
+        return "Usuario ";
+    }
+    @GetMapping("/find")
+    public List <UserDocument> getUsers() {
+        return userService.findAll();
+    }
+    /*
     public UserController( @Autowired UserService userService )
     {
         this.userService = userService;
@@ -59,5 +71,5 @@ public class UserController
     {
         return ResponseEntity.ok( userService.deleteById( id ) );
     }
-
+    */
 }

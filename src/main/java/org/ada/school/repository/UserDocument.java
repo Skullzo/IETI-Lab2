@@ -4,8 +4,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 @Document
+
 public class UserDocument {
-    
     @Id
     String id;
   
@@ -15,8 +15,8 @@ public class UserDocument {
     String email;
   
     String lastName;
-  
-    Date createdAt;
+
+    String createdAt;
   
     public UserDocument() {
         
