@@ -23,8 +23,8 @@ import org.ada.school.service.UserServiceMongoDB;
 @RequestMapping( "/user" )
 public class UserController
 {
-    @Autowired
-    private UserRepository userService;
+    private final UserService userService;
+    /*
     @PostMapping("/save")
     public String saveUser(@RequestBody UserDocument user) {
         userService.save(user);
@@ -34,7 +34,7 @@ public class UserController
     public List <UserDocument> getUsers() {
         return userService.findAll();
     }
-    /*
+    */
     public UserController( @Autowired UserService userService )
     {
         this.userService = userService;
@@ -42,26 +42,26 @@ public class UserController
 
 
     @GetMapping
-    public ResponseEntity<List<User>> all()
+    public ResponseEntity<List<UserDocument>> all()
     {
         return ResponseEntity.ok( userService.all() );
     }
 
     @GetMapping( "/{id}" )
-    public ResponseEntity<User> findById( @PathVariable String id )
+    public Optional<UserDocument> findById( @PathVariable String id )
     {
-        return ResponseEntity.ok( userService.findById( id ) );
+        return userService.findById( id );
     }
 
 
     @PostMapping
-    public ResponseEntity<User> create( @RequestBody UserDto userDto )
+    public ResponseEntity<UserDocument> create( @RequestBody UserDocument user )
     {
-        return ResponseEntity.ok( userService.create( new User( userDto ) ) );
+        return ResponseEntity.ok( userService.create(user));
     }
 
     @PutMapping( "/{id}" )
-    public ResponseEntity<User> update( @RequestBody UserDto userDto, @PathVariable String id )
+    public ResponseEntity<UserDocument> update( @RequestBody UserDto userDto, @PathVariable String id )
     {
         return ResponseEntity.ok( userService.update( userDto, id ) );
     }
@@ -71,5 +71,5 @@ public class UserController
     {
         return ResponseEntity.ok( userService.deleteById( id ) );
     }
-    */
+
 }
