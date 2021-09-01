@@ -2,7 +2,9 @@ package org.ada.school.repository;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Optional;
 import java.util.Date;
+import org.ada.school.dto.UserDto;
 @Document
 
 public class UserDocument {
@@ -27,8 +29,11 @@ public class UserDocument {
     public String getLastName() { return lastName; }
 
     public void setLastName(String lastName) { this.lastName = lastName; }
-  
+
     public UserDocument() {
+    }
+  
+    public UserDocument(UserDto userDto) {
         name= userDto.getName();
         email= userDto.getEmail();
         lastName=userDto.getLastName();

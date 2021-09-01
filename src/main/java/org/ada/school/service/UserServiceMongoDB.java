@@ -2,44 +2,42 @@ package org.ada.school.service;
 import java.util.List;
 import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
+import java.util.Optional;
 import org.ada.school.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.ada.school.repository.UserDocument;
 
 @Service
-public class UserServiceMongoDB {
-    
-    @Autowired
-    UserRepository userRepository;
-    public UserServiceMongoDB(){
-        
-    }
-    /*   
+public class UserServiceMongoDB implements UserService {
+
+    private final UserRepository userRepository;
+
     public UserServiceMongoDB(@Autowired UserRepository userRepository )
        {
            this.userRepository = userRepository;
        }
    
        @Override
-       public User create( User user )
+       public UserDocument create( UserDocument user )
        {
-           return userRepository.save( user );
+           userRepository.save( user );
+           return user;
        }
        
        @Override
-       public UserDocument findById( String name )
+       public Optional<UserDocument> findById( String id )
        {
            
-           return userRepository.findByName( name );
+           return userRepository.findById( id );
            
            
        }
        
        @Override
-       public List<User> all()
+       public List<UserDocument> all()
        {
-           return null;
+           return userRepository.findAll();
        }
    
        @Override
@@ -54,22 +52,17 @@ public class UserServiceMongoDB {
        }
        
        @Override
-       public User update( UserDto userDto, String id )
+       public UserDocument update( UserDto userDto, String id )
        {
            
            if ( userRepository.existsById( id ) )
         {
-            User user = userRepository.findById( id ).get();
-            user.update( userDto );
+            UserDocument user = userRepository.findById( id ).get();
+            user.update(userDto);
             userRepository.save( user );
             return user;
         }
         
         return null;
        }
-    */
-    public String saveDocument(UserDocument user) {
-       userRepository.save( user );
-       return "Usuario agregado";
-    }
 }

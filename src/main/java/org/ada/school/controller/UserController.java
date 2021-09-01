@@ -18,6 +18,7 @@ import java.util.List;
 import org.ada.school.repository.UserDocument;
 import org.ada.school.repository.UserRepository;
 import org.ada.school.service.UserServiceMongoDB;
+import java.util.Optional;
 
 @RestController
 @RequestMapping( "/user" )
