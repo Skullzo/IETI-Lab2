@@ -2,18 +2,31 @@ package org.ada.school.dto;
 
 public class UserDto
 {
+    String id;
+
     String name;
 
     String email;
 
     String lastName;
 
-    public UserDto(String name, String email, String lastName)
+    String createdAt;
+
+    public UserDto(String id, String name, String email, String lastName, String createdAt)
     {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.lastName = lastName;
+        this.createdAt = createdAt;
     }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public void setId(String id) { this.id = id; }
 
     public String getName()
     {
@@ -35,4 +48,11 @@ public class UserDto
     }
 
     public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public String getCreatedAt()
+    {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 }
