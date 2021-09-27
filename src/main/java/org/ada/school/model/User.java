@@ -17,16 +17,16 @@ public class User
 
     String lastName;
 
-    Date createdAt;
+    String createdAt;
 
 
     public User( UserDto userDto )
     {
-        id = UUID.randomUUID().toString();
+        id = userDto.getId();
         name = userDto.getName();
         lastName = userDto.getLastName();
         email = userDto.getEmail();
-        createdAt = new Date();
+        createdAt = userDto.getCreatedAt();
     }
 
     public String getName()
@@ -41,8 +41,10 @@ public class User
 
     public void update( UserDto userDto )
     {
+        id = userDto.getId();
         name = userDto.getName();
         lastName = userDto.getLastName();
         email = userDto.getEmail();
+        createdAt = userDto.getCreatedAt();
     }
 }
