@@ -21,7 +21,7 @@ import org.ada.school.service.UserServiceMongoDB;
 import java.util.Optional;
 
 @RestController
-@RequestMapping( "/user" )
+@RequestMapping( "/v1/user" )
 public class UserController
 {
     private final UserService userService;
